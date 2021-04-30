@@ -884,6 +884,7 @@ return
 
 WM_DISPLAYCHANGE(wParam, lParam) {
 	gosub, RE_OPEN
+	ExitApp
 }
 
 CB_DO(ByRef savedHK, ByRef CB, ByRef HK, DO){
