@@ -181,7 +181,6 @@ Gui, Main: Add, Button, x%X_GROUPS_1% y%Y_BUTTONS_1% w%W_BUTTONS_1% h%H_BUTTONS_
 
 HidingGui(["HIDE1","HIDE2","ARROW","BTN4","BTN5","BTN6","TUT0","TUT1","TUT2","TUT3","TUT4","TUT5","TUT6","TUT7","TUT8","TUT9","TUT10","TUT11","TUT12","TUT13","TUT14","TUT15"],"Main: Hide")
 
-Gui, Main: Show, w448 h570, WinAudioHotkey
 
 ;~ =========================== Credits Window ===========================
 Gui, Credits: Add, Pic, x75 w32 h32, images/ICON.ico
@@ -627,10 +626,6 @@ READ_SETTINGS:
 	
 	WRITE_ENABLE = 1
 
-	if(MINIMIZED){
-		Gui, Main: Cancel
-		MINIMIZED := 0
-	}
 	
 	gosub, WRITE_SETTINGS
 	
@@ -888,8 +883,6 @@ NUM_DO_NOTHING:
 return
 
 WM_DISPLAYCHANGE(wParam, lParam) {
-	MINIMIZED := 1
-	gosub, WRITE_SETTINGS
 	gosub, RE_OPEN
 }
 
@@ -937,7 +930,7 @@ WRITE_SETTINGS:
 		MsgBox, 48, Error, Cannot create file to save the settings, please open the script as administrator
 	}
 	
-	w.WriteLine("CB1=" . CB1 . "`n" . "CB2=" . CB2 . "`n" . "CB3=" . CB3 . "`n" . "CB4=" . CB4 . "`n" . "CB5=" . CB5 . "`n" . "CB6=" . CB6 . "`n" . "TT1=" . TT1 . "`n" . "TT2=" . TT2 . "`n" . "TT3=" . TT3 . "`n" . "TT4=" . TT4 . "`n" . "TT5=" . TT5 . "`n" . "TT6=" . TT6 . "`n" . "HK1=" . HK1 . "`n" . "HK2=" . HK2 . "`n" . "HK3=" . HK3 . "`n" . "HK4=" . HK4 . "`n" . "HK5=" . HK5 . "`n" . "HK6=" . HK6 . "`n" . "CBTray=" . CBTray . "`n" . "MIC_ID=" . MIC_ID . "`n" . "DROPMENU_V=" . DROPMENU . "`n" . "HIDE_TUT=" . HIDE_TUT . "`n" . "NON=" . NON . "`n" . "NOFF=" . NOFF . "`n" . "NDN=" . NDN . "`n" . "CON=" . CON . "`n" . "COFF=" . COFF . "`n" . "CDN=" . CDN . "`n" . "STRTP=" . STRTP . "`n" . "MINIMIZED=" . MINIMIZED)
+	w.WriteLine("CB1=" . CB1 . "`n" . "CB2=" . CB2 . "`n" . "CB3=" . CB3 . "`n" . "CB4=" . CB4 . "`n" . "CB5=" . CB5 . "`n" . "CB6=" . CB6 . "`n" . "TT1=" . TT1 . "`n" . "TT2=" . TT2 . "`n" . "TT3=" . TT3 . "`n" . "TT4=" . TT4 . "`n" . "TT5=" . TT5 . "`n" . "TT6=" . TT6 . "`n" . "HK1=" . HK1 . "`n" . "HK2=" . HK2 . "`n" . "HK3=" . HK3 . "`n" . "HK4=" . HK4 . "`n" . "HK5=" . HK5 . "`n" . "HK6=" . HK6 . "`n" . "CBTray=" . CBTray . "`n" . "MIC_ID=" . MIC_ID . "`n" . "DROPMENU_V=" . DROPMENU . "`n" . "HIDE_TUT=" . HIDE_TUT . "`n" . "NON=" . NON . "`n" . "NOFF=" . NOFF . "`n" . "NDN=" . NDN . "`n" . "CON=" . CON . "`n" . "COFF=" . COFF . "`n" . "CDN=" . CDN . "`n" . "STRTP=" . STRTP . "`n")
 	w.__handle ; write file to disk
 return
 
