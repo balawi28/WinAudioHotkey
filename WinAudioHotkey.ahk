@@ -5,12 +5,10 @@
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 global MIC_ID := -2
+
 FontScaling := Round(96/A_ScreenDPI*8)
 Gui, Main: -DPIScale      
-Gui, Main:font, s%FontScaling%   
-
-Gui, Tut: -DPIScale      
-Gui, Tut2: -DPIScale      
+Gui, Main:font, s%FontScaling%        
 
 Menu, Tray, NoStandard
 
