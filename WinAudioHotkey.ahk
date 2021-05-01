@@ -620,8 +620,10 @@ READ_SETTINGS:
 	gosub, STARTUP_CHECKBOX
 	gosub, TRAY_CHECKBOX
 	
-	if(HIDE_TUT != 1)
+	if(HIDE_TUT != 1){
+		gosub, SHOW_MAIN
 		gosub, TUTORIAL
+	}
 	
 	
 	WRITE_ENABLE = 1
